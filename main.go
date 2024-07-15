@@ -1,15 +1,15 @@
 package main
 
 import (
-	"io"
+	"html/template"
 	"log"
 	"net/http"
 )
 
 func main() {
 	h1 := func(w http.ResponseWriter, r *http.Request) {
-		io.WriteString(w, "Hello World!")
-		io.WriteString(w, "\n"+r.Method)
+		tmpl := template.Must(template.ParseFiles("index.html"))
+		tmpl.Execute(w, nil)
 	}
 	http.HandleFunc("/", h1)
 	log.Fatal(http.ListenAndServe(":80", nil))
