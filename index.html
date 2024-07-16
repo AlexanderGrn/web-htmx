@@ -6,6 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    <div>Hello World!</div>
+    {{ range .Films }}
+    <p>{{ .Title }} - {{ .Director }}</p>
+    {{end}}
   </body>
 </html>
