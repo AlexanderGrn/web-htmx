@@ -21,11 +21,13 @@
           <h1 class="mb-4">Film list</h1>
 
           <ul class="list-group fs-5 me-5" id="film-list">
-            {{ range .Films }}
-            <li class="list-group-item bg-primary text-white">
-              {{ .Title }} - {{ .Director }}
-            </li>
-            {{end}}
+            {{ range .Films }} 
+              {{ block "film-list-element" . }}
+                <li class="list-group-item bg-primary text-white">
+                {{ .Title }} - {{ .Director }}
+                </li>
+              {{ end }} 
+            {{ end }}
           </ul>
         </div>
 
