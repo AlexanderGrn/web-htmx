@@ -32,7 +32,12 @@
         <div class="col-4">
           <h1 class="mb-4">Add Film</h1>
 
-          <form hx-post="/add-film/" hx-target="#film-list" hx-swap="beforeend">
+          <form
+            hx-post="/add-film/"
+            hx-target="#film-list"
+            hx-swap="beforeend"
+            hx-indicator="#spinner"
+          >
             <div class="mb-2">
               <label for="film-title">Title</label>
               <input
@@ -52,7 +57,14 @@
               />
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">
+              <span
+                class="spinner-border spinner-border-sm htmx-indicator"
+                id="spinner"
+                aria-hidden="true"
+              ></span>
+              Submit
+            </button>
           </form>
         </div>
       </div>
